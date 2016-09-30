@@ -1,0 +1,5 @@
+#!/bin/bash
+
+find . -name '*.html' -delete
+find . -name '*.css' -delete
+find . -name '*.js' -delete

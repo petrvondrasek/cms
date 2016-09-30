@@ -1,0 +1,37 @@
+php_flag zlib.output_compression On
+AddHandler application/x-httpd-php .js
+AddHandler application/x-httpd-php .css
+AddHandler application/x-httpd-php .html
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<filesMatch ".(html|php)$">
+	Header set Cache-Control "no-cache, must-revalidate"
+</filesMatch>
+
+<filesMatch ".(css)$">
+	Header set Content-type "text/css"
+</filesMatch>
+
+<filesMatch ".(ico|jpg|jpeg|png|gif|svg)$">
+	Header set Cache-Control "max-age=604800, public"
+</filesMatch>
+
+SetEnv APP_PATH "/../app/"
+
+SetEnv APP_VIEW main
+
+Options +Indexes
+
+DirectorySlash On
+
+DirectoryIndex index.html /main.php
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) main.php [L]
+
