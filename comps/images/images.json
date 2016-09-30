@@ -1,0 +1,49 @@
+{
+	"dir1x": "w200h200q80/",
+	"dir2x": "w400h400q80/",
+
+	"img_sizes":
+	[
+		{
+			"name": "w1536q80",
+			"width": 1536,
+			"height": 0,
+			"quality": 80
+		},{
+			"name": "w400h400q80",
+			"width": 400,
+			"height": 400,
+			"quality": 80
+		},{
+			"name": "w200h200q80",
+			"width": 200,
+			"height": 200,
+			"quality": 80
+		},{
+			"name": "w64h64q80",
+			"width": 64,
+			"height": 64,
+			"quality": 80
+		},{
+			"name": "w32h32q80",
+			"width": 32,
+			"height": 32,
+			"quality": 80
+		}
+	],
+
+	"cs":
+	{
+		"id": "images",
+		"title": "Obrázky",
+		"add_image": "Přidat obrázek",
+		"upload": "Uložit"
+	},
+	"en":
+	{
+		"id": "images",
+		"title": "Images",
+		"add_image": "Upload image",
+		"upload": "Upload"
+	}
+}

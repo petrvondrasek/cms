@@ -1,0 +1,188 @@
+<?php
+
+namespace comps\app
+{
+	use comps\app\entity\entity as entity;
+
+class app_model
+{
+	public $mysql;
+
+	public $sqlite;
+
+	public function __construct() {}
+
+	public function __destruct()
+	{
+		if(isset($this->mysql) and $this->mysql->connect_error == false)
+		{
+			$this->mysql->close();
+		}
+	}
+	
+	public function entity($set = array())
+	{
+		return new entity($set);
+	}
+
+	public function readJSON($filename)
+	{
+		if(($json =  @file_get_contents($filename)) == false)
+			throw new \exception('config read error : (');
+
+		if(($array = json_decode($json, true)) == NULL)
+			throw new \exception('config parse error : (');
+
+		return $array;
+	}
+
+	public function toQuery($object)
+	{
+		$set = array();
+
+		foreach($object->vars as $key => &$value)
+		{
+			$value = $this->escape_string($value);
+
+			if(strlen($value) == 0)
+				$set[] = $key."=".'NULL';
+			else
+				$set[] = $key."='".$value."'";
+		}
+
+		return implode(", ", $set);
+	}
+
+	public function prepare($query, $vars)
+	{
+		foreach($vars as $key => &$value)
+			$value = $this->escape_string($value);
+
+		array_unshift($vars, $query);
+
+		return call_user_func_array('sprintf', $vars);
+	}
+
+
+	public function escape_string($string)
+	{
+		// return $this->mysql->real_escape_string($string);
+		return $this->sqlite->escapeString($string);
+	}
+
+
+	public function mysql_connect($conf_db)
+	{
+		$this->mysql = @new \mysqli(
+			$conf_db['host'], $conf_db['name'],
+			$conf_db['passwd'], $conf_db['dbname']);
+
+		// $this->db->query('SET profiling=1');
+
+		if($this->mysql->connect_error)
+		{
+			throw new \exception('database connection error 8 (');
+		}
+		else
+			return $this->mysql;
+	}
+
+	public function mysql_init_lang($conf_lang)
+	{
+		$this->mysql->query("SET CHARACTER SET utf8");
+		$this->mysql->query("SET lc_time_names = '$conf_lang[time_names]'");
+	}
+
+	public function mysql_query($query,
+		$class = 'comps\app\entity\entity', $argv = array())
+	{
+		$objects = array();
+
+		try
+		{
+			if($result = $this->mysql->query($query))
+			{
+				if($this->mysql->field_count)
+				{
+					while($object = $result->fetch_object($class, $argv))
+					{
+						if($object->id)
+							$objects[$object->id] = $object;
+						else
+							$objects[] = $object;
+					}
+				}
+			}
+			else
+			{
+				throw new \exception($this->mysql->error);
+			}
+		}
+		catch(\exception $e) // log
+		{
+
+		}
+		
+		if(substr(ltrim($query), 0, 6) == 'SELECT') // case sensitive!
+		{
+			return $objects;
+		}
+		else
+		{
+			return $this->mysql->affected_rows;
+		}
+	}
+
+
+	public function sqlite_open($file_path)
+	{
+		$this->sqlite = @new \SQLite3($file_path);
+
+		if($this->sqlite == false)
+		{
+			throw new \exception('database open error 8 (');
+		}
+		else
+			return $this->sqlite;
+	}
+
+	public function sqlite_query($query)
+	{
+		// echo $query;
+
+		$objects = array();
+
+		if($result = $this->sqlite->query($query))
+		{
+			while($entry = $result->fetchArray(SQLITE3_ASSOC))
+			{
+				if(isset($entry->id))
+					$objects[$enryy->id] = $this->entity($entry);
+				else
+					$objects[] = $this->entity($entry);
+			}
+		}
+
+		return $objects;
+	}
+
+
+	// remove
+	public function query($query)
+	{
+		return $this->sqlite_query($query);
+	}
+
+	//
+	public function query_one($query)
+	{
+		if($ret = $this->query($query))
+			return current($ret);
+		else
+			return false;
+	}
+}
+	
+}
+	
+?>

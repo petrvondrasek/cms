@@ -1,0 +1,40 @@
+{
+	"cs":
+	{
+		"id": "content",
+		"title": "Obsah stránky",
+
+		"name": "Hlavní nadpis",
+		"content": "Obsah stránky",
+		"title": "Titulek",
+		"description": "Popis stránky",
+		"dir": "Název složky",
+		"type": "Typ",
+		"pos": "Pozice",
+		"public": "Zveřejněno",
+
+		"update": "Uložit",
+		"delete": "Odstranit",
+		"main": "Dokument",
+		"delete_confirm": "Odstranit stránku?"
+	},
+	"en":
+	{
+		"id": "content",
+		"title": "Page content",
+
+		"name": "Name [h1]",
+		"content": "Page content",
+		"title": "Title",
+		"description": "Description",
+		"dir": "Dir name",
+		"type": "Type",
+		"pos": "Position",
+		"public": "Public",
+
+		"update": "Update",
+		"delete": "Delete",
+		"main": "Document",
+		"delete_confirm": "Delete page?"
+	}
+}

@@ -1,0 +1,13 @@
+<?php if(1): ?>
+#main_html, #main_body
+{
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+<?php if(0): ?>
+	background: url(css/w.main/grid.svg);
+	background-attachment: fixed;
+<?php endif; ?>
+}
+#main_body, #main_content { margin: 0 auto; }
+<?php endif; ?>
+

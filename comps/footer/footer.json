@@ -1,0 +1,12 @@
+{
+	"cs":
+	{
+		"logout": "Odhlásit",
+		"logout_path": "?logout=true"
+	},
+	"en":
+	{
+		"logout": "Log out",
+		"logout_path": "?logout=true"
+	}
+}

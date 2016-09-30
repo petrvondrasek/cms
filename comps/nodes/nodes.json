@@ -1,0 +1,15 @@
+{
+	"dir1x": "w32h32q80/",
+	"dir2x": "w64h64q80/",
+
+	"cs":
+	{
+		"id": "pages",
+		"title": "Podstránky"
+	},
+	"en":
+	{
+		"id": "pages",
+		"title": "Subpages"
+	}
+}
