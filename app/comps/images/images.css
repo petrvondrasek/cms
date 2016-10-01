@@ -33,7 +33,7 @@
 		font-size: 13px;
 		font-weight: bold;
 		cursor: pointer;
-		color: #e00;
+		color: #676767;
 	}
 	#images form.upload label:hover { color: #f00; }
 	#images form.upload label:focus { text-decoration: underline; }
