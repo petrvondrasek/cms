@@ -1,8 +1,5 @@
 <?php if(1): ?>
-#node
-{
-
-}
+#node { }
 	#node_button
 	{
 		background: #ff4e00 url(css/c.content/content.svg) no-repeat center;

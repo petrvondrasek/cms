@@ -18,9 +18,6 @@ function activate(trigger_id, block_id, scroll_to)
 				{
 					block.className = 'disabled';
 				}
-
-				window.scroll(0,findPos(document.getElementById(scroll_to)));
-
 			}, false);
 		}
 	}		
@@ -59,20 +56,6 @@ if(typeof document.getElementsByClassName !== 'function')
 		}
 		return results;
 	}
-}
-
-function findPos(obj)
-{
-    var curtop = 0;
-    if (obj.offsetParent)
-	{
-        do
-		{
-        	curtop += obj.offsetTop;
-        }
-		while (obj = obj.offsetParent);
-		return [curtop];
-    }
 }
 
 var imagesLoaded = 0;

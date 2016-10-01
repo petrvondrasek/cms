@@ -127,7 +127,7 @@ class content
 <?php foreach($views as $id): ?>
    <option value="<?php echo $id; ?>"<?php if($object->type == $id): ?> selected<?php endif; ?>><?php $this($id); ?></option>
 <?php endforeach; ?>
-  <select>
+  </select>
  </li>
  <li>
   <label for="node_pos"><?php $this('pos'); ?></label>

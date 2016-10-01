@@ -43,7 +43,7 @@
 	}
 	#nodes_list a.img
 	{
-		display: block; width 32px; height: 32px; float: left;
+		display: block; width: 32px; height: 32px; float: left;
 		padding: 0;
 	}
 	#nodes_list img
