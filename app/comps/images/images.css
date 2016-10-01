@@ -4,6 +4,7 @@
 	{
 		background: #ff4e00 url(css/c.images/images.svg) no-repeat center;
 		background-size: 24px;
+		color: #fff;
 	}
 
 	#images_body { overflow: hidden; padding: 54px 0; }
@@ -29,11 +30,12 @@
 		margin: 0 auto 24px; padding: 4px 0;
 		width: 100px;
 		text-align: center;
-		font-weight: normal;
+		font-size: 13px;
+		font-weight: bold;
 		cursor: pointer;
-		color: #ff4e00;
+		color: #e00;
 	}
-	#images form.upload label:hover { color: #ff5f22; }
+	#images form.upload label:hover { color: #f00; }
 	#images form.upload label:focus { text-decoration: underline; }
 	#images form.upload input.file
 	{

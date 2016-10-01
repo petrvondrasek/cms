@@ -4,12 +4,12 @@
 
 	"cs":
 	{
-		"id": "pages",
+		"id": "a_pages",
 		"title": "Podstránky"
 	},
 	"en":
 	{
-		"id": "pages",
+		"id": "a_pages",
 		"title": "Subpages"
 	}
 }

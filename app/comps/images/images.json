@@ -34,7 +34,7 @@
 
 	"cs":
 	{
-		"id": "images",
+		"id": "a_images",
 		"title": "Obrázky",
 		"add_image": "Přidat obrázek",
 		"upload": "Uložit",
@@ -42,7 +42,7 @@
 	},
 	"en":
 	{
-		"id": "images",
+		"id": "a_images",
 		"title": "Images",
 		"add_image": "Upload image",
 		"upload": "Upload",

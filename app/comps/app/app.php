@@ -36,11 +36,17 @@ class app
 
 	public function init_model($conf)
 	{
-		// $this->model->mysql_connect($conf['db']);
+		if($conf['mysql']['use'])
+		{
+			$this->model->mysql_connect($conf['mysql']);
 
-		// $this->model->mysql_init_lang($conf['lang']);
+			$this->model->mysql_init_lang($conf['lang']);
+		}
 
-		$this->model->sqlite_open('db/db.sqlite');
+		if($conf['sqlite']['use'])
+		{
+			$this->model->sqlite_open($conf['sqlite']['filepath']);
+		}
 	}
 
 	public function init_request()

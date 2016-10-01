@@ -4,6 +4,7 @@
 	{
 		background: #ff4e00 url(css/c.content/content.svg) no-repeat center;
 		background-size: 24px;
+		color: #fff;
 	}
 	#node_body { overflow: hidden; padding: 54px 0; }
 <?php endif; ?>
