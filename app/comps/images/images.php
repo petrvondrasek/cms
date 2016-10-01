@@ -69,14 +69,11 @@ class images
 		$this->script();
 ?>
 <?php foreach($images as $object): ?>
-  <a class="img prefetch" href="<?php $object->img2x(); ?>">
+  <a class="img<?php if(0): ?> prefetch<?php endif; ?>" href="<?php $object->img2x(); ?>">
    <noscript data-src="<?php $object->img2x(); ?>"<?php if(1): ?> data-srcset="<?php $object->img1x(); ?> 1x, <?php $object->img2x(); ?> 2x"<?php endif; ?> data-alt="<?php $object->alt(); ?>"><img src="<?php $object->img1x(); ?>" alt="<?php $object->alt(); ?>" width="32" height="32" />
    </noscript>
   </a>
 <p><?php $object->filename(); ?></p>
-<?php
-		$this->edit_image($object);
-?>
 <?php endforeach; ?>
  </div>
 </div>

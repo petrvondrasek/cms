@@ -87,6 +87,12 @@ class app
 	}
 
 
+	public function entity($set = array())
+	{
+		return new entity($set);
+	}
+
+
 	public function read($array, $key, $default = NULL)
 	{
 		if(isset($array[$key]) and !empty($array[$key]))
@@ -103,48 +109,6 @@ class app
 		return false;
 	}
 
-	public function readHTACCESS($path, $key, $default = NULL)
-	{
-		if(file_exists($path))
-		{
-			$file = file($path);
-			foreach($file as $line)
-			{
-				if(preg_match('/^\s*SetEnv\s+'.$key.'\s+(.*?)\s*$/',
-					trim($line), $matches))
-				{
-					return $matches[1];
-				}
-			}
-		}
-
-		return $default;	
-	}
-
-	/*
-	public function writeHTACCESS($path)
-	{
-		$data = file($path);
-
-		$data = array_map('replace_a_line', $data);
-
-		file_put_contents($path, implode('', $data));
-	}
-
-	function replace_a_line($data)
-	{
-		if(stristr($data, 'certain word'))
-		{
-			return "replaement line!\n";
-		}
-   		return $data;
-	}
-	 */
-
-	public function entity($set = array())
-	{
-		return new entity($set);
-	}
 
 	public function header_css()
 	{
@@ -181,6 +145,7 @@ class app
 		$this->notfound = true;
 	}
 
+
 	public function mail($from, $to, $subject, $content, $extract = array())
 	{
 		$headers[] = "Content-Type: text/html; charset=UTF-8";
@@ -212,9 +177,9 @@ class app
 		return $string;
 	}
 
-	public function out($value)
+	public function out($string)
 	{
-		echo htmlspecialchars($value);
+		echo htmlspecialchars($string);
 	}
 
 	public function URLfriendly($url)

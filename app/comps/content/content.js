@@ -1,4 +1,4 @@
-activate('node_button', 'node_body', 'page');
+enable_disable('node_button', 'node_body');
 
 if(node_content = document.getElementById('node_content'))
 {

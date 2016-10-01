@@ -6,7 +6,7 @@
 		background-size: 24px;
 	}
 
-	#images_body { overflow: hidden; }
+	#images_body { overflow: hidden; padding: 54px 0; }
 
 	#images_detail { display: none; }
 	#images_detail.active { display: block; }

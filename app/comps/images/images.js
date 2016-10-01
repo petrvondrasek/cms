@@ -1,4 +1,4 @@
-activate('images_button', 'images_body', 'images');
+enable_disable('images_button', 'images_body');
 
 var inputs = document.querySelectorAll('.file');
 

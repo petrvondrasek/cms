@@ -1,4 +1,4 @@
-function activate(trigger_id, block_id, scroll_to)
+function enable_disable(trigger_id, block_id)
 {
 	var trigger, block;
 

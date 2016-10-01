@@ -18,6 +18,11 @@ class app_model
 		{
 			$this->mysql->close();
 		}
+
+		if(isset($this->sqlite))
+		{
+			$this->sqlite->close();
+		}
 	}
 	
 	public function entity($set = array())
@@ -34,40 +39,6 @@ class app_model
 			throw new \exception('config parse error : (');
 
 		return $array;
-	}
-
-	public function toQuery($object)
-	{
-		$set = array();
-
-		foreach($object->vars as $key => &$value)
-		{
-			$value = $this->escape_string($value);
-
-			if(strlen($value) == 0)
-				$set[] = $key."=".'NULL';
-			else
-				$set[] = $key."='".$value."'";
-		}
-
-		return implode(", ", $set);
-	}
-
-	public function prepare($query, $vars)
-	{
-		foreach($vars as $key => &$value)
-			$value = $this->escape_string($value);
-
-		array_unshift($vars, $query);
-
-		return call_user_func_array('sprintf', $vars);
-	}
-
-
-	public function escape_string($string)
-	{
-		// return $this->mysql->real_escape_string($string);
-		return $this->sqlite->escapeString($string);
 	}
 
 
@@ -91,6 +62,35 @@ class app_model
 	{
 		$this->mysql->query("SET CHARACTER SET utf8");
 		$this->mysql->query("SET lc_time_names = '$conf_lang[time_names]'");
+	}
+
+	public function mysql_set($object)
+	{
+		$set = array();
+
+		foreach($object->vars as $key => &$value)
+		{
+			$value = $this->mysql->real_escape_string($value);
+
+			if(strlen($value) == 0)
+				$set[] = $key."=".'NULL';
+			else
+				$set[] = $key."='".$value."'";
+		}
+
+		return implode(", ", $set);
+	}
+
+	public function mysql_prepare($query, $vars)
+	{
+		echo $query;
+
+		foreach($vars as $key => &$value)
+			$value = $this->mysql->real_escape_string($value);
+
+		array_unshift($vars, $query);
+
+		return call_user_func_array('sprintf', $vars);
 	}
 
 	public function mysql_query($query,
@@ -123,7 +123,7 @@ class app_model
 
 		}
 		
-		if(substr(ltrim($query), 0, 6) == 'SELECT') // case sensitive!
+		if(substr(ltrim($query), 0, 6) == 'SELECT')
 		{
 			return $objects;
 		}
@@ -131,6 +131,14 @@ class app_model
 		{
 			return $this->mysql->affected_rows;
 		}
+	}
+
+	public function mysql_query_one($query)
+	{
+		if($ret = $this->mysql_query($query))
+			return current($ret);
+		else
+			return false;
 	}
 
 
@@ -146,10 +154,18 @@ class app_model
 			return $this->sqlite;
 	}
 
+	public function sqlite_prepare($query, $vars)
+	{
+		foreach($vars as $key => &$value)
+			$value = $this->sqlite->escapeString($value);
+
+		array_unshift($vars, $query);
+
+		return call_user_func_array('sprintf', $vars);
+	}
+
 	public function sqlite_query($query)
 	{
-		// echo $query;
-
 		$objects = array();
 
 		if($result = $this->sqlite->query($query))
@@ -166,17 +182,9 @@ class app_model
 		return $objects;
 	}
 
-
-	// remove
-	public function query($query)
+	public function sqlite_query_one($query)
 	{
-		return $this->sqlite_query($query);
-	}
-
-	//
-	public function query_one($query)
-	{
-		if($ret = $this->query($query))
+		if($ret = $this->sqlite_query($query))
 			return current($ret);
 		else
 			return false;

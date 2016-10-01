@@ -19,18 +19,21 @@ class images_model
 	{
 		$c = $this->conf;
 
-		// CONCAT('$root', '$path', '$c[dir1x]', filename) AS img1x,
-		// CONCAT('$root', '$path', '$c[dir2x]', filename) AS img2x
+		// MYSQL - CONCAT
 
-		$query = "
-			SELECT images.id, alt, filename, path
+		$query = $this->app_model->sqlite_prepare("
+			SELECT images.id, alt, filename, path,
+				'$root' || '$path' || '$c[dir1x]' || filename AS img1x,
+				'$root' || '$path' || '$c[dir2x]' || filename AS img2x
+
 			FROM images
 				LEFT JOIN content_cs ON images.content_id=content_cs.id	
-			WHERE content_cs.path='$path'
+			WHERE content_cs.path='%s'
 				AND enabled=1
-			ORDER BY images.updated DESC";
+			ORDER BY images.updated DESC",
+			array($path));
 
-		return $this->app_model->query($query);
+		return $this->app_model->sqlite_query($query);
 	}
 }
 

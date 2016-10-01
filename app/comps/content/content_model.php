@@ -12,27 +12,28 @@ class content_model
 
 	public function readByPath($path, $lang = 'cs')
 	{
-		$query = "
-			SELECT content_admin.*
+		$query = $this->app_model->sqlite_prepare("
+			SELECT *
 			FROM content_admin
-			WHERE content_admin.path='$path' AND deleted IS NULL
-			ORDER BY path DESC, id ASC";
+			WHERE content_admin.path='%s' AND deleted IS NULL
+			ORDER BY path DESC, id ASC",
+			array($path));
 
-		return $this->app_model->query_one($query);
+		return $this->app_model->sqlite_query_one($query);
 	}
 
 	public function readNodeByPath($path)
 	{
 		// DATE_FORMAT(updated, '%%e. %%c. %%Y %%H:%%i') as updated1
 
-		$query = $this->app_model->prepare("
+		$query = $this->app_model->sqlite_prepare("
 			SELECT *,
 				updated as updated1
 			FROM content_cs
 			WHERE path='%s'",
 			array($path));
 
-		return $this->app_model->query_one($query);
+		return $this->app_model->sqlite_query_one($query);
 	}
 }
 

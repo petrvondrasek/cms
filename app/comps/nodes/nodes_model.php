@@ -22,7 +22,7 @@ class nodes_model
 		// CONCAT('$root', content_cs.path, '$c[dir1x]', images.filename) AS img_1x
 		// AND path REGEXP '^$path.[-a-z0-9]+/$'
 
-		$query = $this->app_model->prepare("
+		$query = $this->app_model->sqlite_prepare("
 			SELECT content_cs.path, content_cs.name, images.alt as img_alt
 				
 			FROM content_cs
@@ -33,9 +33,9 @@ class nodes_model
 				OR images.enabled)
 			GROUP BY content_cs.id
 			ORDER BY content_cs.pos ASC, content_cs.updated DESC",
-			array($path, $path));
+			array($path));
 
-		return $this->app_model->query($query);
+		return $this->app_model->sqlite_query($query);
 	}
 }
 
