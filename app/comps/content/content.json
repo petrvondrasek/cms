@@ -2,10 +2,11 @@
 	"cs":
 	{
 		"id": "content",
-		"title": "Obsah stránky",
+		"main_title": "Obsah stránky",
 
 		"name": "Hlavní nadpis",
 		"content": "Obsah stránky",
+		"content_title": "Může obsahovat libovolný kód HTML.",
 		"title": "Titulek",
 		"description": "Popis stránky",
 		"dir": "Název složky",
@@ -16,18 +17,21 @@
 		"update": "Uložit",
 		"delete": "Odstranit",
 		"main": "Dokument",
+		"update_alert": "DEMO: nelze uložit.",
+		"delete_alert": "DEMO: nelze odstranit.",
 		"delete_confirm": "Odstranit stránku?"
 	},
 	"en":
 	{
 		"id": "content",
-		"title": "Page content",
+		"main_title": "Page content",
 
 		"name": "Name [h1]",
 		"content": "Page content",
+		"content_title": "You can use any HTML.",
 		"title": "Title",
 		"description": "Description",
-		"dir": "Dir name",
+		"dir": "Folder name",
 		"type": "Type",
 		"pos": "Position",
 		"public": "Public",
@@ -35,6 +39,8 @@
 		"update": "Update",
 		"delete": "Delete",
 		"main": "Document",
+		"update_alert": "DEMO mode: cannot update.",
+		"delete_alert": "DEMO mode: cannot delete.",
 		"delete_confirm": "Delete page?"
 	}
 }

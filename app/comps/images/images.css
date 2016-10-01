@@ -6,7 +6,6 @@
 		background-size: 24px;
 	}
 
-
 	#images_body { overflow: hidden; }
 
 	#images_detail { display: none; }
@@ -35,6 +34,7 @@
 		color: #ff4e00;
 	}
 	#images form.upload label:hover { color: #ff5f22; }
+	#images form.upload label:focus { text-decoration: underline; }
 	#images form.upload input.file
 	{
 		width: 0.1px;

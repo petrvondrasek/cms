@@ -91,7 +91,8 @@
 	.comp input.text:focus, .comp textarea:focus, .comp select:focus,
 	.comp input.checkbox:focus
 	{
-		border: none; outline: 1px solid #aaa;
+		outline: none;
+		border: 1px solid #aaa;
 	}
 	.comp input.text, .comp select
 	{
@@ -130,6 +131,11 @@
 		background: none;
 		-webkit-appearance: none;
 	}
+	.comp input.submit_update:focus, .comp input.submit_delete:focus
+	{
+		outline: none;
+		text-decoration: underline;
+	}
 	.comp input.submit_update
 	{
 		float: right;
@@ -144,7 +150,7 @@
 	{
 		float: left;
 		font-weight: normal;
-		color: #ccc;
+		color: #767676;
 	}
 	.comp input.submit_delete:hover
 	{

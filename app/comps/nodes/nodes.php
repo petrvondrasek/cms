@@ -47,12 +47,12 @@ class nodes
 <ul>
 <?php $c=0; foreach($nodes as $object): ?>
  <li>
+<?php if(0): ?>
   <a class="img prefetch" href="/?id=<?php $object->path(); ?>">
-<?php if($object->img_1x): ?>
    <noscript data-src="<?php $object->img_1x(); ?>"<?php if(0): ?> data-srcset="<?php $object->img_1x(); ?> 1x, <?php $object->img_1x(); ?> 2x"<?php endif; ?> data-alt=""><img src="<?php $object->img_1x(); ?>" alt="" width="32" height="32" />
    </noscript>
+  </a>
 <?php endif; ?>
-  </a> 
   <a href="/?id=<?php $object->path(); ?>"><?php $object->name(); ?></a>
  </li>
 <?php endforeach; ?>

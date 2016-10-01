@@ -34,16 +34,6 @@ class content_model
 
 		return $this->app_model->query_one($query);
 	}
-
-	public function updateNode()
-	{
-
-	}
-
-	public function deleteNode()
-	{
-
-	}
 }
 
 }

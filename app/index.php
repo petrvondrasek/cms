@@ -37,12 +37,7 @@ class main
 		$view_name = 'views\\'.$view_name.'\\'.$view_name;
 		$view = new $view_name($this->app);
 
-		$content = $view->getObject()->init();
-
-		if(empty($_GET['stat']) and empty($this->app->notfound))
-		{
-			// $this->cache($root, $this->app->request, $content);
-		}
+		$view->getObject()->init();
 	}
 
 	public function css($path)
@@ -66,20 +61,6 @@ class main
 
 		return $this->app->minify(ob_get_flush());
 	}
-
-	public function cache($root, $path, $content)
-	{
-		if(substr($path, -1) == '/')
-		{
-			$path = '/index.html';
-		}
-
-		if($this->conf['cache']['enabled'])
-		{
-			file_put_contents($root.$path, $content);
-		}
-	}
-
 }
 
 }

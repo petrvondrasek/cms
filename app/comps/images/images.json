@@ -37,13 +37,15 @@
 		"id": "images",
 		"title": "Obrázky",
 		"add_image": "Přidat obrázek",
-		"upload": "Uložit"
+		"upload": "Uložit",
+		"upload_alert": "DEMO: nelze uploadovat."
 	},
 	"en":
 	{
 		"id": "images",
 		"title": "Images",
 		"add_image": "Upload image",
-		"upload": "Upload"
+		"upload": "Upload",
+		"upload_alert": "DEMO mode: cannot upload."
 	}
 }

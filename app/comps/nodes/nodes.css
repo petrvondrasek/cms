@@ -36,6 +36,11 @@
 	{
 		color: #666;
 	}
+	#nodes_list a:focus
+	{
+		outline: none;
+		text-decoration: underline;
+	}
 	#nodes_list a.img
 	{
 		display: block; width 32px; height: 32px; float: left;

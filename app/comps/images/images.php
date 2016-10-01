@@ -94,7 +94,7 @@ class images
    <input type="file" id="img" name="img" class="file" data-multiple-caption="{count} <?php $this('id'); ?>" accept="image/jpeg" />
   </li>
  </ol>
- <input type="submit" class="submit" value="<?php $this('upload'); ?>" />
+ <input type="submit" class="submit" onclick="return alert('<?php $this('upload_alert'); ?>')" value="<?php $this('upload'); ?>" />
 </form>
 <?php
 	}

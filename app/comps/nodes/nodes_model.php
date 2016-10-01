@@ -15,29 +15,6 @@ class nodes_model
 			__DIR__.'/nodes.json');
 	}
 
-	public function createNode($node, $root, $path) // remove
-	{
-		$node->dir = $node->URLfriendly($node->name);
-		$node->path = $path.$node->dir.'/';
-
-		$set = $this->app_model->toQuery($node);
-
-		$query = "
-			INSERT INTO content_cs
-			SET $set, inserted=NOW(), updated=NOW()";
-
-		$this->app_model->query($query);
-
-		// create directory & .htaccess
-		if(!file_exists($root.$node->path))
-		{
-			mkdir($root.$node->path);
-
-			$htaccess = $root.$node->path.'.htaccess';
-			file_put_contents($htaccess, 'SetEnv APP_VIEW main');
-		}
-	}
-
 	public function readNodesByPath($path, $root)
 	{
 		$c = $this->conf;
@@ -50,7 +27,7 @@ class nodes_model
 				
 			FROM content_cs
 				LEFT JOIN images ON content_cs.id=images.content_id 
-			WHERE path!='$path'
+			WHERE path!='$path' AND path!='/'
 				AND content_cs.deleted IS NULL
 				AND (images.content_id IS NULL
 				OR images.enabled)

@@ -92,7 +92,7 @@ class content
 <div id="node" class="comp">
 <div id="<?php $this('id'); ?>" class="comp_header">
  <h1 id="node_h1"><?php $object->title(); ?></h1>
- <h2><a id="node_button" title="<?php $this('title'); ?>" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('title'); ?></a></h2>
+ <h2><a id="node_button" title="<?php $this('main_title'); ?>" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('main_title'); ?></a></h2>
  <p id="node_p"><?php $object->description(); ?></p>
 </div>
 <div class="comp_body">
@@ -102,24 +102,24 @@ class content
 ?>
 <ol>
  <li>
- <label for="node_name"><?php $this('name'); ?></label>
-  <input type="text" id="node_name" name="node[name]" class="text" value="<?php $object->name(); ?>" />
+ <label for="node_name" title="Alt + n"><?php $this('name'); ?></label>
+  <input accesskey="n" type="text" id="node_name" name="node[name]" class="text" value="<?php $object->name(); ?>" />
  </li>
  <li>
-  <label for="node_content"><?php $this('content'); ?></label>
-  <textarea id="node_content" name="node[content]" title="Může obsahovat libovolný kód HTML."><?php $object->content(); ?></textarea>
+  <label for="node_content" title="Alt + c"><?php $this('content'); ?></label>
+  <textarea accesskey="c" id="node_content" name="node[content]" title="<?php $this('content_title'); ?>"><?php $object->content(); ?></textarea>
  </li>
  <li>
   <label for="node_title" title="Alt + t"><?php $this('title'); ?></label>
   <input accesskey="t" type="text" id="node_title" name="node[title]" class="text" value="<?php $object->title(); ?>" />
  </li>
  <li>
-  <label for="node_desc"><?php $this('description'); ?></label>
-  <input type="text" id="node_desc" name="node[description]" class="text" value="<?php $object->description(); ?>" />
+  <label for="node_desc" title="Alt + s"><?php $this('description'); ?></label>
+  <input accesskey="s" type="text" id="node_desc" name="node[description]" class="text" value="<?php $object->description(); ?>" />
  </li>
  <li>
-  <label for="node_dir"><?php $this('dir'); ?></label>
-  <input type="text" id="node_dir" name="node[dir]" class="text" value="<?php $object->dir(); ?>" />
+  <label for="node_dir" title="Alt + o"><?php $this('dir'); ?></label>
+  <input accesskey="o" type="text" id="node_dir" name="node[dir]" class="text" value="<?php $object->dir(); ?>" />
  </li>
  <li>
   <label for="node_type"><?php $this('type'); ?></label>
@@ -140,9 +140,9 @@ class content
  </li>
 </ol>
  <input type="hidden" name="node[path]" value="<?php $this->app->out($this->path); ?>" />
- <input type="submit" class="submit_update" name="update" value="<?php $this('update'); ?>" />
+ <input type="submit" class="submit_update" name="update" onclick="return alert('<?php $this('update_alert'); ?>')" value="<?php $this('update'); ?>" />
 <?php if($object->id and $object->path != '/'): ?>
- <input type="submit" class="submit_delete" name="delete" onclick="return confirm('<?php $this('delete_confirm'); ?>')" value="<?php $this('delete'); ?>" />
+ <input type="submit" class="submit_delete" name="delete" onclick="return alert('<?php $this('delete_alert'); ?>')" value="<?php $this('delete'); ?>" />
 <?php endif; ?>
 </form>
 </div>

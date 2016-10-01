@@ -5,7 +5,7 @@ namespace views\main
 
 class main
 {
-	const version = '1.0.0';
+	const version = '1.0.1';
 
 	const index = false;
 
@@ -98,6 +98,7 @@ class main
 			$this->content();
 
 			// $this->c('login')->process();
+
 			$this->c('footer')->process($user);
 		}
 		else
@@ -118,16 +119,6 @@ class main
 		$this->c('content')->process();
 
 		$this->c('nodes')->process();
-		// todo: pokud neexistuji poduzly, ukazeme jen komponentu, ktera pridava nove
-
-		if($content_edit->ac_product)
-		{
-			//$this->c('product')->process();
-		}
-		else
-		{
-			//$this->c('product')->process();
-		}
 
 		if($content_edit->ac_images)
 			$this->c('images')->process();
