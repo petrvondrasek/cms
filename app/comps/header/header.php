@@ -49,7 +49,7 @@ class header
 <?php endforeach; ?>
 </ul>
 <?php if(1 and $i and $p!=$parent): ?>
-<a id="header_back" href="?id=<?php echo $parent; ?>"><?php $this('up'); ?></a>
+<a id="header_up" title="Alt + u" accesskey="u" href="?id=<?php echo $parent; ?>"><?php $this('up'); ?></a>
 <?php endif; ?>
 <?php
 	}

@@ -42,16 +42,18 @@
 		text-decoration: underline;
 	}
 
-#header_back
+#header_up
 {
-	display: block; width: 44px; height: 44px;
+	display: block; padding: 10px;
 	float: right;
-	text-indent: -9999px;
-	background: url(css/c.header/left.png) right center no-repeat;
+	font: 13px/18px Tahoma, "Arial CE", "Helvetica CE", Arial, helvetica, sans-serif;
+	text-decoration: none;
+	font-weight: bold;
+	color: #767676;
 }
-#header_back:focus
+#header_up:focus
 {
-	outline: none; background-color: #eee;
+	outline: none; text-decoration: underline;
 }
 
 #header_message

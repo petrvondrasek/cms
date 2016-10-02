@@ -102,24 +102,24 @@ class content
 ?>
 <ol>
  <li>
- <label for="node_name" title="Alt + n"><?php $this('name'); ?></label>
-  <input accesskey="n" type="text" id="node_name" name="node[name]" class="text" value="<?php $object->name(); ?>" />
+ <label for="node_name"><?php $this('name'); ?></label>
+  <input type="text" id="node_name" name="node[name]" class="text" value="<?php $object->name(); ?>" />
  </li>
  <li>
-  <label for="node_content" title="Alt + c"><?php $this('content'); ?></label>
-  <textarea accesskey="c" id="node_content" name="node[content]" title="<?php $this('content_title'); ?>"><?php $object->content(); ?></textarea>
+  <label for="node_content"><?php $this('content'); ?></label>
+  <textarea id="node_content" name="node[content]" title="<?php $this('content_title'); ?>"><?php $object->content(); ?></textarea>
  </li>
  <li>
-  <label for="node_title" title="Alt + t"><?php $this('title'); ?></label>
-  <input accesskey="t" type="text" id="node_title" name="node[title]" class="text" value="<?php $object->title(); ?>" />
+  <label for="node_title"><?php $this('title'); ?></label>
+  <input type="text" id="node_title" name="node[title]" class="text" value="<?php $object->title(); ?>" />
  </li>
  <li>
-  <label for="node_desc" title="Alt + s"><?php $this('description'); ?></label>
-  <input accesskey="s" type="text" id="node_desc" name="node[description]" class="text" value="<?php $object->description(); ?>" />
+  <label for="node_desc"><?php $this('description'); ?></label>
+  <input type="text" id="node_desc" name="node[description]" class="text" value="<?php $object->description(); ?>" />
  </li>
  <li>
-  <label for="node_dir" title="Alt + o"><?php $this('dir'); ?></label>
-  <input accesskey="o" type="text" id="node_dir" name="node[dir]" class="text" value="<?php $object->dir(); ?>" />
+  <label for="node_dir"><?php $this('dir'); ?></label>
+  <input type="text" id="node_dir" name="node[dir]" class="text" value="<?php $object->dir(); ?>" />
  </li>
  <li>
   <label for="node_type"><?php $this('type'); ?></label>

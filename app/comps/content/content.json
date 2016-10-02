@@ -27,7 +27,7 @@
 		"main_title": "Page content",
 
 		"name": "Name [h1]",
-		"content": "Page content",
+		"content": "Page content [any HTML]",
 		"content_title": "You can use any HTML.",
 		"title": "Title",
 		"description": "Description",

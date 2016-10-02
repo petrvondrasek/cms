@@ -23,8 +23,8 @@ class images_model
 
 		$query = $this->app_model->sqlite_prepare("
 			SELECT images.id, alt, filename, path,
-				'$root' || '$path' || '$c[dir1x]' || filename AS img1x,
-				'$root' || '$path' || '$c[dir2x]' || filename AS img2x
+				'$root' || '/images/' || '$c[dir1x]' || filename AS img1x,
+				'$root' || '/images/' || '$c[dir2x]' || filename AS img2x
 
 			FROM images
 				LEFT JOIN content_cs ON images.content_id=content_cs.id	
