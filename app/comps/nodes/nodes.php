@@ -39,7 +39,7 @@ class nodes
 ?>
 <div id="nodes" class="comp">
 <div id="<?php $this('id'); ?>" class="comp_header">
- <h2 id="nodes_header" title="<?php $this('title'); ?>"><a id="nodes_button" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('title'); ?></a></h2>
+ <h2><a id="nodes_button" accesskey="2" title="<?php $this('title'); ?>" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('title'); ?></a></h2>
 </div>
 <div class="comp_body">
 <?php if($nodes): ?>

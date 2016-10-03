@@ -6,6 +6,12 @@
 		background-size: 24px;
 		color: #fff;
 	}
+	.comp.fixed #node_button
+	{
+		position: fixed; top: 44px; left: 50%;	
+		margin: 0 0 0 -30px;
+		opacity: 0.9;
+	}
 	#node_body { overflow: hidden; padding: 54px 0; }
 <?php endif; ?>
 

@@ -35,7 +35,7 @@
 	"cs":
 	{
 		"id": "a_images",
-		"title": "Obrázky",
+		"title": "Obrázky (Alt + 3)",
 		"add_image": "Přidat obrázek",
 		"upload": "Uložit",
 		"upload_alert": "DEMO: nelze uploadovat."
@@ -43,7 +43,7 @@
 	"en":
 	{
 		"id": "a_images",
-		"title": "Images",
+		"title": "Images (Alt + 3)",
 		"add_image": "Upload image",
 		"upload": "Upload",
 		"upload_alert": "DEMO mode: cannot upload."

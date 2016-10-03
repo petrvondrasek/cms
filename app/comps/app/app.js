@@ -91,4 +91,22 @@ for(var i=0; i<elements.length; i++)
 		img.srcset = srcset;
 	img.src = elements[i].getAttribute('data-src');
 }
+<?php if(0): ?>
+var comps = document.getElementsByClassName('comp');
+
+window.onscroll = function()
+{
+	for(var i=0; i<comps.length; i++)
+	{
+		if(window.scrollY > comps[i].offsetTop)
+		{
+			comps[i].className = 'comp fixed';
+		}
+		else
+		{
+			comps[i].className = 'comp';
+		}
+	}
+};
+<?php endif; ?>
 

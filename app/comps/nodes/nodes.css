@@ -5,6 +5,13 @@
 		background: #63dcff url(css/c.nodes/nodes.svg) no-repeat center;
 		background-size: 24px;
 	}
+	.comp.fixed #nodes_button
+	{
+		position: fixed; top: 44px; left: 50%;	
+		margin: 0 0 0 -30px;
+		opacity: 0.9;
+	}
+
 	#nodes .comp_header
 	{
 		border: none;
@@ -22,15 +29,16 @@
 	}
 	#nodes_list ul li
 	{
-		display: block; padding: 10px 0; margin: 18px 0;
+		display: block; padding: 10px 24px; margin: 18px 0;
 	}
 	#nodes_list a
 	{
 		display: block;
 		text-decoration: none;
-		outline: none;
-		background-size: 16px 16px;
 		padding: 8px 24px 0;
+		background: url(css/c.nodes/folder.svg) no-repeat left;
+		background-size: 16px 16px;
+		background-position: 0 8px;
 	}
 	#nodes_list a:link, #nodes_list a:visited
 	{

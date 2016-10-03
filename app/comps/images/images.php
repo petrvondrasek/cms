@@ -58,7 +58,7 @@ class images
 ?>
 <div id="images" class="comp">
 <div id="<?php $this('id'); ?>" class="comp_header">
- <h2><a id="images_button" title="<?php $this('title'); ?>" href="?id=<?php echo $path; ?>#<?php $this('id'); ?>"><?php $this('title'); ?></a></h2>
+ <h2><a id="images_button" accesskey="3" title="<?php $this('title'); ?>" href="?id=<?php echo $path; ?>#<?php $this('id'); ?>"><?php $this('title'); ?></a></h2>
 <?php
 		$this->add_image();
 ?>
@@ -69,11 +69,11 @@ class images
 		$this->script();
 ?>
 <?php foreach($images as $object): ?>
-  <a class="img<?php if(0): ?> prefetch<?php endif; ?>" href="<?php $object->img2x(); ?>">
-   <noscript data-src="<?php $object->img2x(); ?>"<?php if(1): ?> data-srcset="<?php $object->img1x(); ?> 1x, <?php $object->img2x(); ?> 2x"<?php endif; ?> data-alt="<?php $object->alt(); ?>"><img src="<?php $object->img1x(); ?>" alt="<?php $object->alt(); ?>" width="32" height="32" />
-   </noscript>
-  </a>
-<p><?php $object->filename(); ?></p>
+ <a class="img<?php if(0): ?> prefetch<?php endif; ?>" href="<?php $object->img2x(); ?>">
+  <noscript data-src="<?php $object->img2x(); ?>"<?php if(1): ?> data-srcset="<?php $object->img1x(); ?> 1x, <?php $object->img2x(); ?> 2x"<?php endif; ?> data-alt="<?php $object->alt(); ?>"><img src="<?php $object->img1x(); ?>" alt="<?php $object->alt(); ?>" width="32" height="32" />
+  </noscript>
+ </a>
+ <p><?php $object->filename(); ?></p>
 <?php endforeach; ?>
  </div>
 </div>
@@ -87,7 +87,7 @@ class images
 <form class="upload" method="post" enctype="multipart/form-data">
  <ol>
   <li>
-   <label for="img"><?php $this('add_image'); ?></label>
+   <label id="img_label" for="img"><?php $this('add_image'); ?></label>
    <input type="file" id="img" name="img" class="file" data-multiple-caption="{count} <?php $this('id'); ?>" accept="image/jpeg" />
   </li>
  </ol>

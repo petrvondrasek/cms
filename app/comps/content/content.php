@@ -92,7 +92,7 @@ class content
 <div id="node" class="comp">
 <div id="<?php $this('id'); ?>" class="comp_header">
  <h1 id="node_h1"><?php $object->title(); ?></h1>
- <h2><a id="node_button" title="<?php $this('main_title'); ?>" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('main_title'); ?></a></h2>
+ <h2><a id="node_button" accesskey="1" title="<?php $this('main_title'); ?>" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('main_title'); ?></a></h2>
  <p id="node_p"><?php $object->description(); ?></p>
 </div>
 <div class="comp_body">
@@ -102,14 +102,6 @@ class content
 ?>
 <ol>
  <li>
- <label for="node_name"><?php $this('name'); ?></label>
-  <input type="text" id="node_name" name="node[name]" class="text" value="<?php $object->name(); ?>" />
- </li>
- <li>
-  <label for="node_content"><?php $this('content'); ?></label>
-  <textarea id="node_content" name="node[content]" title="<?php $this('content_title'); ?>"><?php $object->content(); ?></textarea>
- </li>
- <li>
   <label for="node_title"><?php $this('title'); ?></label>
   <input type="text" id="node_title" name="node[title]" class="text" value="<?php $object->title(); ?>" />
  </li>
@@ -117,6 +109,15 @@ class content
   <label for="node_desc"><?php $this('description'); ?></label>
   <input type="text" id="node_desc" name="node[description]" class="text" value="<?php $object->description(); ?>" />
  </li>
+ <li>
+ <label for="node_name"><?php $this('name'); ?></label>
+  <input type="text" id="node_name" name="node[name]" class="text" value="<?php $object->name(); ?>" />
+ </li>
+ <li>
+  <label for="node_content"><?php $this('content'); ?></label>
+  <textarea id="node_content" name="node[content]" title="<?php $this('content_title'); ?>"><?php $object->content(); ?></textarea>
+ </li>
+<?php if($object->path != '/'): ?>
  <li>
   <label for="node_dir"><?php $this('dir'); ?></label>
   <input type="text" id="node_dir" name="node[dir]" class="text" value="<?php $object->dir(); ?>" />
@@ -138,6 +139,7 @@ class content
   <input type="hidden" value="0" name="node[public]" />
   <input id="node_public" class="checkbox" type="checkbox" value="1" name="node[public]"<?php if($object->public): ?> checked<?php endif; ?> />
  </li>
+<?php endif; ?>
 </ol>
  <input type="hidden" name="node[path]" value="<?php $this->app->out($this->path); ?>" />
  <input type="submit" class="submit_update" name="update" onclick="return alert('<?php $this('update_alert'); ?>')" value="<?php $this('update'); ?>" />

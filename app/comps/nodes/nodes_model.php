@@ -23,14 +23,15 @@ class nodes_model
 		// AND path REGEXP '^$path.[-a-z0-9]+/$'
 
 		$query = $this->app_model->sqlite_prepare("
-			SELECT content_cs.path, content_cs.name, images.alt as img_alt
+			SELECT content_cs.path, content_cs.name, images.alt as img_alt,
+				'$root' || content_cs.path || '$c[dir1x]' || images.filename AS img_1x
 				
 			FROM content_cs
 				LEFT JOIN images ON content_cs.id=images.content_id 
-			WHERE path!='$path' AND path!='/'
+			WHERE path!='$path' AND path!='/' AND path LIKE '$path%%'
 				AND content_cs.deleted IS NULL
 				AND (images.content_id IS NULL
-				OR images.enabled)
+					OR images.enabled)
 			GROUP BY content_cs.id
 			ORDER BY content_cs.pos ASC, content_cs.updated DESC",
 			array($path));

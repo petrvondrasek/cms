@@ -2,7 +2,7 @@
 	"cs":
 	{
 		"id": "a_content",
-		"main_title": "Obsah stránky",
+		"main_title": "Obsah stránky (Alt + 1)",
 
 		"name": "Hlavní nadpis",
 		"content": "Obsah stránky",
@@ -24,7 +24,7 @@
 	"en":
 	{
 		"id": "a_content",
-		"main_title": "Page content",
+		"main_title": "Page content (Alt + 1)",
 
 		"name": "Name [h1]",
 		"content": "Page content [any HTML]",

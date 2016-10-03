@@ -6,6 +6,12 @@
 		background-size: 24px;
 		color: #fff;
 	}
+	.comp.fixed #images_button
+	{
+		position: fixed; top: 44px; left: 50%;	
+		margin: 0 0 0 -30px;
+		opacity: 0.9;
+	}
 
 	#images_body { overflow: hidden; padding: 54px 0; }
 
@@ -36,7 +42,7 @@
 		color: #676767;
 	}
 	#images form.upload label:hover { color: #f00; }
-	#images form.upload label:focus { text-decoration: underline; }
+	#images form.upload label.focus { text-decoration: underline; }
 	#images form.upload input.file
 	{
 		width: 0.1px;
@@ -56,7 +62,7 @@
 	#images img
 	{
 		display: block;
-		width: 200px; height: 200px;
+		width: 100%; height: auto;
 		margin: 0 auto;
 		border: 1px solid #eee;
 		border-radius: 10px;
@@ -110,5 +116,9 @@
 		font-size: 11px;
 		cursor: pointer;
 	}
+@media (min-width: 200px)
+{
+	#images img { width: 200px; }
+}
 <?php endif; ?>
 
