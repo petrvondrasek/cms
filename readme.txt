@@ -19,7 +19,7 @@ Requierements:
    - to allow access from root/ to app/ directory
 
 ===========
-How to run on Windows:
+How to run on Apache/Windows:
 
 1. edit C:\Windows\System32\drivers\etc\hosts
  - add something like 127.0.0.1	cms.server
