@@ -1,0 +1,33 @@
+<?php if(0): ?>
+#login { margin: 80px auto; }
+	#login h2
+	{
+		text-indent: -9999px;
+		background: #ddd url(css/c.login/login.svg) no-repeat center;
+		background-size: 32px;
+		background-color: #ff3600;
+	}
+	#login input.submit
+	{
+		font: 12px/18px Tahoma, "Arial CE", "Helvetica CE", Arial, helvetica, sans-serif;
+		display: block; width: 100px; height: 36px;
+		padding: 6px 14px; border: none; margin: 0 auto;
+		font-weight: bold; letter-spacing: 0;
+		cursor: pointer;
+
+		background: #d2d2d2; color: #fff;
+		border-radius: 10px;
+	}
+	#login input.submit:hover, input.submit:active input.submit:focus
+	{ outline: none; background: #666; }
+
+@media (min-width: 340px)
+{
+	#login { width: 320px; }
+}
+@media (max-width: 340px)
+{
+	#login { margin: 80px 5px; }
+}
+<?php endif; ?>
+

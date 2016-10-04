@@ -1,0 +1,124 @@
+<?php if(1): ?>
+#images {}
+	#images_button
+	{
+		background: #ff4e00 url(css/c.images/images.svg) no-repeat center;
+		background-size: 24px;
+		color: #fff;
+	}
+	.comp.fixed #images_button
+	{
+		position: fixed; top: 44px; left: 50%;	
+		margin: 0 0 0 -30px;
+		opacity: 0.9;
+	}
+
+	#images_body { overflow: hidden; padding: 54px 0; }
+
+	#images_detail { display: none; }
+	#images_detail.active { display: block; }
+	#images ol
+	{
+		list-style: none;
+		margin: 0; padding: 0;
+	}
+	#images li
+	{
+		margin: 0; padding: 0;
+	}
+	#images form.upload
+	{
+		margin: 0 0 18px;
+	}
+	#images form.upload label
+	{
+		display: block;
+		margin: 0 auto 24px; padding: 4px 0;
+		width: 100px;
+		text-align: center;
+		font-size: 13px;
+		font-weight: bold;
+		cursor: pointer;
+		color: #676767;
+	}
+	#images form.upload label:hover { color: #f00; }
+	#images form.upload label.focus { text-decoration: underline; }
+	#images form.upload input.file
+	{
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+	#images form.upload input.submit
+	{
+		display: block;
+		font-size: 11px;
+		margin: 9px auto;
+		cursor: pointer;
+	}
+	#images img
+	{
+		display: block;
+		width: 100%; height: auto;
+		margin: 0 auto;
+		border: 1px solid #eee;
+		border-radius: 10px;
+	}
+	#images form.update
+	{
+
+	}
+	#images form.update label
+	{
+		display: block;
+		margin: 0 auto; padding: 0;
+		width: 190px;
+		cursor: pointer;
+		color: #ccc;
+
+		display: none;
+	}
+	#images form.update input.text
+	{
+		display: block; width: 190px; height: 42px;
+		padding: 0 5px; margin: 9px auto;
+		font: 17px/24px Tahoma, "Arial CE", "Helvetica CE", Arial, sans-serif;
+		background: #fff; color: #665; transition: color 0.2s;
+		box-sizing: border-box;
+		outline: none;
+		border: 1px solid #e9e9e9;
+		border-bottom-color: #ddd;
+		border-radius: 5px;
+	}
+	#images form.update input.text[disabled]
+	{
+		color: #aaa; -webkit-text-fill-color: #aaa;
+	}
+	#images form.update input.text:focus
+	{
+		color: #111;
+	}
+	#images form.update div.submit
+	{
+		margin: 0 0 36px;
+	}
+
+	#images form.update div.submit input.submit
+	{
+		display: block;
+		margin: 0 auto 18px;		
+	}
+	#images form.update input.submit
+	{
+		font-size: 11px;
+		cursor: pointer;
+	}
+@media (min-width: 200px)
+{
+	#images img { width: 200px; }
+}
+<?php endif; ?>
+
