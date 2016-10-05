@@ -84,8 +84,6 @@ class app_model
 
 	public function mysql_prepare($query, $vars)
 	{
-		echo $query;
-
 		foreach($vars as $key => &$value)
 			$value = $this->mysql->real_escape_string($value);
 
@@ -145,15 +143,24 @@ class app_model
 
 	public function sqlite_open($file_path)
 	{
-		//$this->sqlite = @new \SQLite3($file_path);
 		$this->sqlite = @new \PDO('sqlite:'.$file_path);
+
+		if(($result = $this->sqlite->query("
+			SELECT 1 FROM content_admin LIMIT 1")) == false)
+		{
+			throw new \exception('database open error 8 (');
+		}
+
+		/*
+		$this->sqlite = @new \SQLite3($file_path);
 
 		if($this->sqlite == false)
 		{
 			throw new \exception('database open error 8 (');
 		}
-		else
-			return $this->sqlite;
+		*/
+
+		return $this->sqlite;
 	}
 
 	public function sqlite_prepare($query, $vars)
