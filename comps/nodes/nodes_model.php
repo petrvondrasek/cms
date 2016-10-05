@@ -30,13 +30,13 @@ class nodes_model
 				
 			FROM $content
 				LEFT JOIN images ON $content.id=images.content_id
-			WHERE path!='$path' AND path!='/' AND path LIKE '$path%%'
+			WHERE path!='$path' AND path!='/' AND path LIKE %s
 				AND $content.deleted IS NULL
 				AND (images.content_id IS NULL
 					OR images.enabled)
 			GROUP BY $content.id
 			ORDER BY $content.pos ASC, $content.updated DESC",
-			array($path));
+			array($path.'%'));
 
 		return $this->app_model->sqlite_query($query);
 	}

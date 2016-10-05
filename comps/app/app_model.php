@@ -21,7 +21,8 @@ class app_model
 
 		if(isset($this->sqlite))
 		{
-			$this->sqlite->close();
+			$this->sqlite = NULL;
+			//$this->sqlite->close();
 		}
 	}
 	
@@ -144,7 +145,8 @@ class app_model
 
 	public function sqlite_open($file_path)
 	{
-		$this->sqlite = @new \SQLite3($file_path);
+		//$this->sqlite = @new \SQLite3($file_path);
+		$this->sqlite = @new \PDO('sqlite:'.$file_path);
 
 		if($this->sqlite == false)
 		{
@@ -157,20 +159,25 @@ class app_model
 	public function sqlite_prepare($query, $vars)
 	{
 		foreach($vars as $key => &$value)
-			$value = $this->sqlite->escapeString($value);
+		{
+			//$value = $this->sqlite->escapeString($value);
+			$value = $this->sqlite->quote($value);
+		}
 
 		array_unshift($vars, $query);
 
 		return call_user_func_array('sprintf', $vars);
 	}
 
-	public function sqlite_query($query)
+	public function sqlite_query($query,
+		$class = 'comps\app\entity\entity')
 	{
 		$objects = array();
 
 		if($result = $this->sqlite->query($query))
 		{
-			while($entry = $result->fetchArray(SQLITE3_ASSOC))
+			// while($entry = $result->fetchArray(SQLITE3_ASSOC))
+			while($entry = $result->fetchObject($class))
 			{
 				if(isset($entry->id))
 					$objects[$enryy->id] = $this->entity($entry);

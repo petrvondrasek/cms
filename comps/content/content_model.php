@@ -20,7 +20,7 @@ class content_model
 		$query = $this->app_model->sqlite_prepare("
 			SELECT *
 			FROM content_admin
-			WHERE content_admin.path='%s' AND deleted IS NULL
+			WHERE content_admin.path=%s AND deleted IS NULL
 			ORDER BY path DESC, id ASC",
 			array($path));
 
@@ -36,7 +36,7 @@ class content_model
 			SELECT *,
 				updated AS updated1
 			FROM $content
-			WHERE path='%s'",
+			WHERE path=%s",
 			array($path));
 
 		return $this->app_model->sqlite_query_one($query);

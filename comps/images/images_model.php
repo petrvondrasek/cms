@@ -30,7 +30,7 @@ class images_model
 
 			FROM images
 				LEFT JOIN $content ON images.content_id=$content.id	
-			WHERE $content.path='%s'
+			WHERE $content.path=%s
 				AND enabled=1
 			ORDER BY images.updated DESC",
 			array($path));

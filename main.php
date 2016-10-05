@@ -65,7 +65,7 @@ class main
 		return $this->app->minify(ob_get_flush());
 	}
 
-	public function js($path)
+	public function js()
 	{
 		$this->app->header_js();
 
