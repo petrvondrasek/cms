@@ -90,7 +90,7 @@ class content
 <div id="node" class="comp" role="main">
 <div id="<?php $this('id'); ?>" class="comp_header">
  <h1 id="node_h1"><?php $object->title(); ?></h1>
- <h2><a id="node_button" accesskey="1" title="<?php $this('main_h2'); ?> <?php $this('main_title'); ?>" href="?id=<?php echo $this->path; ?>#<?php $this('id'); ?>"><?php $this('main_h2'); ?></a></h2>
+ <h2><a id="node_button" accesskey="1" title="<?php $this('main_h2'); ?> <?php $this('main_title'); ?>" href="<?php if($this->app->read($_GET, 'id')): ?>?id=<?php echo $this->path; ?><?php endif; ?>#<?php $this('id'); ?>"><?php $this('main_h2'); ?></a></h2>
  <p id="node_p"><?php $object->description(); ?></p>
 </div>
 <div class="comp_body">

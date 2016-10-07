@@ -59,7 +59,7 @@ class images
 ?>
 <div id="images" class="comp">
 <div id="<?php $this('id'); ?>" class="comp_header">
- <h2><a id="images_button" accesskey="3" title="<?php $this('main_h2'); ?> <?php $this('main_title'); ?>" href="?id=<?php echo $path; ?>#<?php $this('id'); ?>"><?php $this('main_h2'); ?></a></h2>
+ <h2><a id="images_button" accesskey="3" title="<?php $this('main_h2'); ?> <?php $this('main_title'); ?>" href="<?php if($this->app->read($_GET, 'id')): ?>?id=<?php echo $path; ?><?php endif; ?>#<?php $this('id'); ?>"><?php $this('main_h2'); ?></a></h2>
 <?php
 		$this->add_image();
 ?>
